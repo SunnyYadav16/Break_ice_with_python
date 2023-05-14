@@ -22,8 +22,21 @@
     ABd1234@1
 """
 
-input_pwd = input().split(",")
+upper_char, lower_char, number, special_char = 0, 0, 0, 0
 
+input_pwd = input().split(",")
+print(input_pwd)
 for valid_pwd in input_pwd:
     if 6 <= len(valid_pwd) <= 12:
-        pass
+        for character in valid_pwd:
+            if character.islower():
+                lower_char += 1
+            if character.isupper():
+                upper_char += 1
+            if character.isdigit():
+                number += 1
+            if character in ["$", "#", "@"]:
+                special_char += 1
+
+        if lower_char > 1 and upper_char > 1 and number > 1 and special_char > 1:
+            print(valid_pwd)

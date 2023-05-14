@@ -18,3 +18,14 @@
     Then, the output of the program should be:
     [('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
 """
+
+my_list = []
+
+while True:
+    input_value = input().split(",")
+    if len(input_value[0]) == 0:
+        break
+    my_list.append(tuple(input_value))
+
+my_list.sort(key=lambda value: (value[0], int(value[1]), int(value[2])))
+print(my_list)
